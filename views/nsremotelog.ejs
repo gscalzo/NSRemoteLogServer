@@ -1,0 +1,13 @@
+
+<script type="text/javascript">
+	var server = io.connect('/')
+	server.on('log', function (msg) {
+      $('textarea').value += msg
+      $('#textarea').val($('#textarea').val()+msg+'\n'); 
+  })
+</script>
+
+<div id="logView">
+    <textarea id="textarea" rows="50" cols="180"></textarea>
+</div>
+

@@ -14,14 +14,13 @@ io.configure(function () {
 app.use(express.bodyParser());
 
 app.get('/', function(request, response) {
-	response.render('weathermap.ejs', {lat:12, long:13})
+	response.render('nsremotelog.ejs')
 });
 
-app.post('/measure', function(request, response) {
-  response.send('You are doomed');
+app.post('/log', function(request, response) {
+  response.send('Log received');
   console.log(request.body)
-//  	io.sockets.emit('measure', request.body.lat, request.body.long)
-  	io.sockets.emit('measure', request.body)
+  	io.sockets.emit('log', request.body['log'])
 });
 
 

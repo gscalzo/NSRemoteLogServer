@@ -19,4 +19,11 @@ Note down the name of app (i.e hollow-galaxy-7080)
 Deploy app:
    >>> git push heroku master
 
+Connect to server:
+   >>> http://hollow-galaxy-7080.herokuapp.com
 
+Send a message using provided script:
+   >>> ./send.sh hollow-galaxy-7080 'message log'
+
+ That's all!
+ 
