@@ -1,5 +1,5 @@
 {
-  "name": "node-example",
+  "name": "NSRemoteLogServer",
   "version": "0.0.1",
   "dependencies": {
 	  "socket.io": "0.7.x",
@@ -7,6 +7,6 @@
 		"ejs": "0.7.x"
   },
   "engines": {
-    "node": "0.6.x"
+    "node": "0.8.x"
   }
 }
