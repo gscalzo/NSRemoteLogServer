@@ -1,0 +1,1 @@
+curl -i -H "Accept: application/json" -H "Content-Type: application/json" -X POST -d '{"lat":45.464161, "long":9.190336, "date":"aa", "temperature": 23.4, "humidity":75}' http://weather-server.herokuapp.com//measure

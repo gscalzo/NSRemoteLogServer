@@ -1,0 +1,30 @@
+
+
+<script type="text/javascript">
+    var map;
+    $(document).ready(function(){
+      map = new GMaps({
+        div: '#map',
+        lat: 45.464161,
+        lng: 9.190336,
+        zoom: 11,
+        height: '400px'
+      });
+      var addMarker = function(latitude, longitude){
+		map.addMarker({
+  		lat: latitude,
+  		lng: longitude,
+  		title: 'Panic'
+		})
+	}
+	var server = io.connect('/');
+		server.on('panic', function (lat, long) {
+			$('#map').hide().delay(100).fadeIn(100).fadeOut(100).fadeIn(150).fadeOut(150).fadeIn(200).fadeOut(200).fadeIn(250).fadeOut(250).fadeIn(100);
+			addMarker(lat, long)
+    	});
+    });
+
+  </script>
+
+<div id="map"></div>
+

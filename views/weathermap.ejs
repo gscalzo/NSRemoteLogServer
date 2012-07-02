@@ -1,0 +1,35 @@
+
+<script type="text/javascript">
+    var map;
+    $(document).ready(function(){
+      map = new GMaps({
+        div: '#map',
+        lat: 45.464161,
+        lng: 9.190336,
+        zoom: 11,
+        height: '400px'
+      });
+      var addMarker = function(measure){
+        var latitude = measure["lat"]
+        var longitude = measure["long"]
+        var content = '<p>'+ "data:" + measure["date"]+'</p>'+'<p>'+ "temperatura:" + measure["temperature"]+'</p>'+ "umidità:" + measure["humidity"]+'%</p>'
+    	 	var marker = map.addMarker({
+      		lat: latitude,
+      		lng: longitude,
+          infoWindow: {
+          content: content
+          },
+      		title: '+weather'
+    		})
+	}
+	var server = io.connect('/');
+		server.on('measure', function (measure) {
+			$('#map').hide().delay(100).fadeIn(100).fadeOut(100).fadeIn(150).fadeOut(150).fadeIn(200).fadeOut(200).fadeIn(250).fadeOut(250).fadeIn(100);
+			addMarker(measure)
+    	});
+    });
+
+  </script>
+
+<div id="map"></div>
+
